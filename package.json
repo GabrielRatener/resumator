@@ -1,0 +1,36 @@
+{
+  "name": "resumator",
+  "version": "0.0.1",
+  "description": "Resumes made awesome!",
+  "main": "start.js",
+  "scripts": {
+    "start": "node start.js",
+    "build": "rollup -c public/js/rollup.config.js && sass --scss public/scss:public/css"
+  },
+  "engines": {
+    "node": ">6.0.0"
+  },
+  "keywords": [
+    "chat",
+    "server",
+    "bizubee"
+  ],
+  "author": "Gabriel Ratener",
+  "license": "MIT",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "cli-prompt": "^0.6.0",
+    "dotenv": "^4.0.0",
+    "express": "^4.14.0",
+    "jade": "^1.11.0",
+    "livescript": "^1.5.0",
+    "node-uuid": "^1.4.7",
+    "pug": "^2.0.0-beta6",
+    "rollup-plugin-multi-entry": "^2.0.1",
+    "socketio": "^1.0.0",
+    "tangler": "^0.1.0"
+  },
+  "devDependencies": {
+    "ftp": "^0.3.10"
+  }
+}

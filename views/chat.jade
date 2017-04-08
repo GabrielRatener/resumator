@@ -1,0 +1,41 @@
+// Chat model root
+#chat
+	.chat-toggle(v-on:click='toggleChat')
+		span(v-if='open').glyphicon.glyphicon-remove
+		span(v-else).glyphicon.glyphicon-pencil
+	.thread(v-bind:class='{open: open}')
+		.threader
+			h3 Hi, {{members[index].name}}
+			h4 {{topic}}
+		ul#messages.media-list
+			li.media(v-for="message in thread")
+				.media-left
+					div(title='{{message.sender | getName members | cap}}')
+						span.initials(style='color: {{members[message.sender].color | color}}')
+							{{message.sender | getName members | initials}}
+				.media-body
+					span.message-body {{{message.body | ntobr}}}
+					br
+					br
+					span.badge @ {{message.time | time}}
+			li.media(id='message-input', v-if='typing > -1')
+				.media-left
+					div(title='{{typing | getName members | cap}}')
+						span.initials(style='color: {{members[typing].color | color}}')
+							{{typing | getName members | initials}}
+				.media-body
+					img(src='../../images/typing.gif')
+			li.media(id='message-input')
+				hr
+				.media-left
+					div(title='{{index | getName members | cap}}')
+						span.initials(style='color: {{members[index].color | color}}')
+							{{index | getName members | initials}}
+				.media-body
+					textarea#compose(
+						v-model='text'
+						v-on:keydown.enter='sendMessage',
+						v-on:input='showTyping',
+						placeholder='Write message here...'
+						)
+

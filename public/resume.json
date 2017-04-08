@@ -1,0 +1,41 @@
+{
+	"head": {
+		"name": "Gabriel Ratener",
+		"email": "gabe9693@gmail.com",
+		"phone": "4254637382",
+		"title": "Software Developer and Instructor",
+		"address": [
+			"19620 NE Redmond Rd",
+			"Redmond, WA 98053"
+		]		
+	},
+	"body": [
+		{
+			"title": "Education",
+			"details": [
+				{"title": "MS in Computer Science from Central Washington University (Winter 2017)"},
+				{"title": "BS in Atmospheric Science (Meteorology) and a minor in Applied Math from the University of Washington (Spring 2014)"},				
+				{"title": "AA from Bellevue College with honors (Spring 2011)"}
+			] 
+		},
+		{
+			"title": "Employment",
+			"details": [
+				{
+					"title": "Freelance web developer (2012 - Present)",
+					"details": [
+						{"title": "Development and maintenance of the MichaelGreenUSA online leather accessories store"},
+						{"title": "Development and maintenance of the entire website for SucreSoir womens’ clothes retail store (now out of business)"}
+					] 
+				},
+				{
+					"title": "Instructor at Prime Learning Center (June 2016 - Present)",
+					"details": [
+						{"title": "Math instructor and tutor"},
+						{"title": "Programming instructor and curriculum designer"}
+					]
+				}
+			] 
+		}
+	]
+}

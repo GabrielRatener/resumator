@@ -1,0 +1,70 @@
+doctype html
+html#app(lang='en')
+	head
+		title Resumator - Admin
+
+		include head.jade
+
+		script(src='/js/admin.out.js')
+	body
+		#content.content-box
+			// Dashboard model root
+			#dashboard 
+				#shell
+					ul(class='list-group')
+						li(v-for='line in log', class='list-group-item {{line.type}}')
+							span(class='prefix') {{line.type | replPrefix}}
+							code {{line.text| ntobr}}
+						li(class='list-group-item prompt')
+							span(class='prefix')= '>>'
+							input(
+								v-model='commands[commandIndex]',
+								v-on:keyup.enter='run()',
+								v-on:keyup.up='history()',
+								v-on:keyup.down='history(false)'
+								)
+				#chats
+					table.table.table-inverse
+						thead
+							caption
+								h4 Participants
+							tr
+								th #
+								th Name
+								th Profile
+								th Topic
+								th URL
+								th Online
+						tr(v-for='(i, member) in chats')
+							td
+								a(v-on:click='changeThread(i)') {{i}}
+							td {{member.name}}
+							td
+								button(
+									class='btn btn-primary',
+									type='button',
+									data-toggle='collapse',
+									data-target='#profile-{{$index}}',
+									aria-expanded='false',
+									aria-controls='profile-{{$index}}'
+									) edit
+								ul(class='profile list-group collapse', id='profile-{{$index}}')
+									li(v-for='info in member.profiles', class='list-group-item')
+										span(class='color', style='color: {{info.color | color}}')
+											span #
+											input(v-model='info.color', v-on:input='update("color", i, $index)')
+										span(class='name')
+											input(v-model='info.name', v-on:input='update("name", i, $index)')
+							td
+								input.seamless(
+									v-model='member.topic',
+									v-on:input='update("topic", i)'
+									)
+							td
+								input(type='text', value='{{member.id | url}}')
+							td
+								span(
+									class=`glyphicon {{(member.profiles[1].connections > 0) | bool 'glyphicon-ok-circle' 'glyphicon-ban-circle'}}`,
+									aria-hidden=`true`
+									)
+			include chat.jade

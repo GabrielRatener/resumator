@@ -1,0 +1,16 @@
+doctype html
+html#app(lang='en')
+	head
+		title#title {{unread | showUnread}}Gabriel's Resume
+
+		include head.jade
+
+		script(src='/#{id}.constants.js')
+		script(src='/js/main.out.js')
+	body
+		#content.content-box
+			.resume
+				iframe(src='resume/#{id}')
+
+			include chat.jade
+

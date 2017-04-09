@@ -8,6 +8,30 @@ Vue.filter('signify', (value, name) => {
 	}
 });
 
+Vue.filter('online', (members, index) => {
+	for (let i = 0; i < members.length; i++) {
+		console.log(members[i]);
+		if (i === index)
+			continue;
+		if (members[i].online)
+			return 'online';
+	}
+
+	return 'offline';
+});
+
+Vue.filter('firstOnline', (members, index) => {
+	for (let i = 0; i < members.length; i++) {
+		console.log(members[i]);
+		if (i === index)
+			continue;
+		if (members[i].online)
+			return `${members[i].name} is available to chat`;
+	}
+
+	return 'Chat';
+});
+
 Vue.filter('initials', (value) => (value || '')
 	.split(/\s+/g)
 	.map(word => word[0])
@@ -224,7 +248,6 @@ window.addEventListener('load', () => {
 				});
 
 				socket.on('update-typing', ({index, typing}) => {
-					model.open = true;
 					if (index === model.index) {
 						return;
 					}
@@ -289,7 +312,7 @@ window.addEventListener('load', () => {
 			}
 		}
 	});
-
+	
 	titleModel = new Vue({
 		el: "#title",
 		data: {

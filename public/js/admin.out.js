@@ -11,6 +11,30 @@ Vue.filter('signify', (value, name) => {
 	}
 });
 
+Vue.filter('online', (members, index) => {
+	for (let i = 0; i < members.length; i++) {
+		console.log(members[i]);
+		if (i === index)
+			continue;
+		if (members[i].online)
+			return 'online';
+	}
+
+	return 'offline';
+});
+
+Vue.filter('firstOnline', (members, index) => {
+	for (let i = 0; i < members.length; i++) {
+		console.log(members[i]);
+		if (i === index)
+			continue;
+		if (members[i].online)
+			return `${members[i].name} is available to chat`;
+	}
+
+	return 'Chat';
+});
+
 Vue.filter('initials', (value) => (value || '')
 	.split(/\s+/g)
 	.map(word => word[0])
@@ -225,7 +249,6 @@ window.addEventListener('load', () => {
 				});
 
 				socket.on('update-typing', ({index, typing}) => {
-					model.open = true;
 					if (index === model.index) {
 						return;
 					}
@@ -290,7 +313,7 @@ window.addEventListener('load', () => {
 			}
 		}
 	});
-
+	
 	titleModel = new Vue({
 		el: "#title",
 		data: {
@@ -317,6 +340,23 @@ $(document).ready((e) => {
 				chatModel.connect(url);
 				chatModel.open = true;
 			},
+			openThread(index) {
+				if (model.chats[index].profiles[1].connections > 0) {
+					const {id} = this.chats[index];
+
+					if (window.speechSynthesis) {
+						const utterance = new SpeechSynthesisUtterance('opening');
+						speechSynthesis.speak(utterance);
+					}
+
+					adminSocket.emit('send-to-chat', {
+						id,
+						index: 1,
+						event: "open",
+						params: true
+					});
+				}
+			},
 			history(back = true) {
 				if (back) {
 					if (this.commandIndex > 0)
@@ -341,7 +381,7 @@ $(document).ready((e) => {
 						break;
 				}
 
-				adminSocket.emit(`update`, {
+				adminSocket.emit(`update-chat-property`, {
 					property,
 					value,
 					id,
@@ -516,6 +556,9 @@ $(document).ready((e) => {
 
 		subject[property] = value;
 	});
+
+	window.addEventListener('focus', commands.mute);
+	window.addEventListener('click', commands.mute);
 });
 
 }());

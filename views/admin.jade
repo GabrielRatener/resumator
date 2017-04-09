@@ -64,6 +64,7 @@ html#app(lang='en')
 								input(type='text', value='{{member.id | url}}')
 							td
 								span(
+									v-on:click='openThread(i)',
 									class=`glyphicon {{(member.profiles[1].connections > 0) | bool 'glyphicon-ok-circle' 'glyphicon-ban-circle'}}`,
 									aria-hidden=`true`
 									)

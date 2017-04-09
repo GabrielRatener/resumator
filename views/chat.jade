@@ -1,8 +1,12 @@
 // Chat model root
 #chat
-	.chat-toggle(v-on:click='toggleChat')
-		span(v-if='open').glyphicon.glyphicon-remove
-		span(v-else).glyphicon.glyphicon-pencil
+	.chat-toggle(
+		v-on:click='toggleChat',
+		class='{{members | online index}}',
+		title='{{members | firstOnline index}}'
+		)
+		span(v-if='open', title='Close chat').glyphicon.glyphicon-remove
+		span(v-else).glyphicon.glyphicon-comment
 	.thread(v-bind:class='{open: open}')
 		.threader
 			h3 Hi, {{members[index].name}}
@@ -33,7 +37,7 @@
 							{{index | getName members | initials}}
 				.media-body
 					textarea#compose(
-						v-model='text'
+						v-model='text',
 						v-on:keydown.enter='sendMessage',
 						v-on:input='showTyping',
 						placeholder='Write message here...'

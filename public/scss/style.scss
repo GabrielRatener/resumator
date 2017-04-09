@@ -1,6 +1,8 @@
 
 $threadOffset: 50px;
-$threadTop: 15px;
+$threadTop: 7.5px;
+
+$mobileMaxWidth: 600px;
 
 @keyframes fade {
   0% {
@@ -94,36 +96,56 @@ body {
 		right: 0px;
 		top: 0px;
 		width: 49%;
+		@media (max-width: $mobileMaxWidth) {
+			width: 100%;
+		}
+
 		overflow-x: hidden;
 		overflow-y: auto;
 		height: 90%;
 
-		table tr td {
-			.seamless {
-				width: 150px;
+		table {
+			caption h4 {
+				padding-left: 10px;
 			}
 
-			a {
-				cursor: pointer;
-			}
-			&:nth-child(0n + 3) {
-				.btn {
-					border-radius: 0px;
-					outline: none;
+			tr {
+				td, th {
+					&:nth-child(0n + 5) {
+						@media (max-width: $mobileMaxWidth) {
+							display: none;
+						}
+					}
 				}
 
-				width: 200px;
+				td {
+					.seamless {
+						width: 150px;
+					}
 
-				ul {
-					width: 180px;					
+					a {
+						cursor: pointer;
+					}
+					&:nth-child(0n + 3) {
+						.btn {
+							border-radius: 0px;
+							outline: none;
+						}
+
+						width: 200px;
+
+						ul {
+							width: 180px;					
+						}
+					}
+
+					&:nth-child(0n + 5) input {
+						width: 100px;
+					}
 				}
-			}
-
-			&:nth-child(0n + 5) input {
-
-				width: 100px;
 			}
 		}
+
 
 		ul.profile {
 			width: 210px;
@@ -170,27 +192,125 @@ body {
 		}
 	}
 
+	#chat {
+		.thread {
+			z-index: 10;
+			display: none;
+			position: absolute;
+			background: white;
+			width: 350px;
+			top: 0px;
+			right: 0px;
+			border-left: 1px solid #f0f0f0;
+			height: 100%;
+			overflow-y: auto;
 
-	.chat-toggle {
-		background-color: white;
-		cursor: pointer;
-		text-align: center;
-		position: absolute;
-		z-index: 50;
-		top: $threadTop;
-		right: $threadTop;
-		border: 1px solid gray;
-		height: 40px;
-		padding-top: 10px;
-		width: 40px;
-		border-radius: 21px;
+			@media (max-width: $mobileMaxWidth) {
+				width: 100%;
+			}
+
+			box-shadow: -1px 0px 3px gray;
+
+			&.open {
+				display: block;
+				animation-name: fade;
+				animation-duration: 1s;
+			}
+
+			.threader {
+				$white1: rgba(255,255,255,0);
+				$white2: rgba(255,255,255,0.7);
+				$white3: rgba(255,255,255,1.0);
+
+				position: fixed;
+				width: 100%;
+				background: linear-gradient(0deg, $white1, $white2 30%, $white3);
+				//background: linear-gradient(0deg, blue, red);
+				padding-bottom: 30px;
+				h1, h2, h3, h4, h5 {
+					&:nth-child(0n + 1) {
+						text-transform: capitalize;
+						margin-top: $threadTop !important;
+					}
+					margin-left: $threadOffset;
+					margin-top: 0px;
+				}
+			}
+
+			ul {
+				margin-top: 130px;
+			}
+
+			ul#messages {
+				list-style-type: none;
+
+				.badge {
+					float: right;		
+				}
+
+				textarea {
+					color: black;
+					width: 250px;
+					max-width: 250px;
+					border: none;
+					padding: 0px;
+					outline: none;
+					outline-bottom: 1px;
+					min-height: 50px;
+				}
+
+				.media-body {
+					display: inline-block;
+					max-width: 250px;
+				}
+
+				.media-left {
+					display: inline-block;
+					width: $threadOffset !important;			
+				}
+
+				.media-left div {
+					text-align: right;
+				}
+			}
+		}
+
+		.chat-toggle {
+			background-color: white;
+			cursor: pointer;
+			text-align: center;
+			position: absolute;
+			z-index: 50;
+			top: $threadTop;
+			right: $threadTop;
+			height: 40px;
+			padding-top: 10px;
+			width: 40px;
+			border-radius: 21px;
+			&.online {
+				border: 2px solid green;
+				color: green;
+
+				.glyphicon-remove {
+					color: gray;
+				}
+			}
+
+			&.offline {
+				border: 1px solid gray;
+				color: gray;
+			}
+		}
 	}
-
 
 	#shell {
 		width: 49%;
 		font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
 		font-size: 14px;
+
+		@media (max-width: $mobileMaxWidth) {
+			display: none;
+		}
 
 		ul li {
 			$height: 22px;
@@ -274,84 +394,6 @@ body {
 			margin-left: auto;
 			margin-right: auto;
 			border: none;
-		}
-	}
-
-	.thread {
-		z-index: 10;
-		display: none;
-		position: absolute;
-		background: white;
-		width: 350px;
-		top: 0px;
-		right: 0px;
-		border-left: 1px solid #f0f0f0;
-		height: 100%;
-		overflow-y: auto;
-
-		box-shadow: -3px 0px 5px gray;
-
-		&.open {
-			display: block;
-			animation-name: fade;
-			animation-duration: 1s;
-		}
-
-		.threader {
-			$white1: rgba(255,255,255,0);
-			$white2: rgba(255,255,255,0.7);
-			$white3: rgba(255,255,255,1.0);
-
-			position: fixed;
-			width: 100%;
-			background: linear-gradient(0deg, $white1, $white2 30%, $white3);
-			//background: linear-gradient(0deg, blue, red);
-			padding-bottom: 30px;
-			h1, h2, h3, h4, h5 {
-				&:nth-child(0n + 1) {
-					text-transform: capitalize;
-					margin-top: $threadTop !important;
-				}
-				margin-left: $threadOffset;
-				margin-top: 0px;
-			}
-		}
-
-		ul {
-			margin-top: 130px;
-		}
-
-		ul#messages {
-			list-style-type: none;
-
-			.badge {
-				float: right;		
-			}
-
-			textarea {
-				color: black;
-				width: 250px;
-				max-width: 250px;
-				border: none;
-				padding: 0px;
-				outline: none;
-				outline-bottom: 1px;
-				min-height: 50px;
-			}
-
-			.media-body {
-				display: inline-block;
-				max-width: 250px;
-			}
-
-			.media-left {
-				display: inline-block;
-				width: $threadOffset !important;			
-			}
-
-			.media-left div {
-				text-align: right;
-			}
 		}
 	}
 }

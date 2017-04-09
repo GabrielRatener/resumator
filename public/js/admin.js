@@ -19,6 +19,23 @@ $(document).ready((e) => {
 				chatModel.connect(url);
 				chatModel.open = true;
 			},
+			openThread(index) {
+				if (model.chats[index].profiles[1].connections > 0) {
+					const {id} = this.chats[index];
+
+					if (window.speechSynthesis) {
+						const utterance = new SpeechSynthesisUtterance('opening');
+						speechSynthesis.speak(utterance);
+					}
+
+					adminSocket.emit('send-to-chat', {
+						id,
+						index: 1,
+						event: "open",
+						params: true
+					});
+				}
+			},
 			history(back = true) {
 				if (back) {
 					if (this.commandIndex > 0)
@@ -43,7 +60,7 @@ $(document).ready((e) => {
 						break;
 				}
 
-				adminSocket.emit(`update`, {
+				adminSocket.emit(`update-chat-property`, {
 					property,
 					value,
 					id,
@@ -218,4 +235,7 @@ $(document).ready((e) => {
 
 		subject[property] = value;
 	});
+
+	window.addEventListener('focus', commands.mute);
+	window.addEventListener('click', commands.mute);
 });

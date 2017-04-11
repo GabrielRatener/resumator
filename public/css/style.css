@@ -79,6 +79,17 @@ body {
         width: 100%; } }
     .content-box #chats table caption h4 {
       padding-left: 10px; }
+    .content-box #chats table tr span.clickable {
+      display: inline-block;
+      text-align: center;
+      height: 30px;
+      border-radius: 15px;
+      border: 1px solid blue; }
+      .content-box #chats table tr span.clickable:active {
+        background-color: gray; }
+    .content-box #chats table tr .index span.clickable {
+      padding-top: 4px;
+      width: 30px; }
     .content-box #chats table tr .profile {
       width: 200px; }
       .content-box #chats table tr .profile ul.profile {
@@ -120,6 +131,9 @@ body {
     @media (max-width: 600px) {
       .content-box #chats table tr .url {
         display: none; } }
+    .content-box #chats table tr .online span.clickable {
+      width: 30px;
+      padding-top: 7px; }
     .content-box #chats table tr td.profile {
       width: 180px; }
       .content-box #chats table tr td.profile .btn {

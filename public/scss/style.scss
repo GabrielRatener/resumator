@@ -114,6 +114,29 @@ body {
 			}
 
 			tr {
+				span.clickable {
+					display: inline-block;
+					text-align: center;
+					height: 30px;
+					border-radius: 15px;
+					border: 1px solid blue;
+
+					&:active {
+						background-color: gray;
+					}				
+				}
+
+				.index {
+					span.clickable {
+						padding-top: 4px;
+						width: 30px;
+					}
+				}
+
+				.name {
+
+				}
+
 				.profile {
 					width: 200px;
 					ul.profile {
@@ -173,7 +196,7 @@ body {
 				.topic {
 					@media (max-width: $mobileMaxWidth) {
 						display: none;
-					}					
+					}				
 				}
 
 				.url {
@@ -182,6 +205,13 @@ body {
 					}
 				}
 
+
+				.online {
+					span.clickable {
+						width: 30px;
+						padding-top: 7px;
+					}
+				}
 
 				td {
 

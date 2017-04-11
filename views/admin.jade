@@ -29,41 +29,43 @@ html#app(lang='en')
 							caption
 								h4 Participants
 							tr
-								th #
-								th Name
-								th Profile
-								th Topic
-								th URL
-								th Online
+								th.index #
+								th.name Name
+								th.profile Profile
+								th.topic Topic
+								th.url URL
+								th.online On
 						tr(v-for='(i, member) in chats')
-							td
-								a(v-on:click='changeThread(i)') {{i}}
-							td {{member.name}}
-							td
+							td.index
+								span.clickable(v-on:click='changeThread(i)') {{i}}
+							td.name {{member.name}}
+							td.profile
 								button(
 									class='btn btn-primary',
 									type='button',
 									data-toggle='collapse',
-									data-target='#profile-{{$index}}',
+									data-target='#profile-{{i}}',
 									aria-expanded='false',
-									aria-controls='profile-{{$index}}'
+									aria-controls='profile-{{i}}'
 									) edit
-								ul(class='profile list-group collapse', id='profile-{{$index}}')
-									li(v-for='info in member.profiles', class='list-group-item')
+								ul(class='profile list-group collapse', id='profile-{{i}}')
+									li(class='list-group-item topic')
+										input.seamless(v-model='member.topic', v-on:input='update("topic", i)')
+									li(v-for='info in member.profiles', class='list-group-item profile')
 										span(class='color', style='color: {{info.color | color}}')
 											span #
 											input(v-model='info.color', v-on:input='update("color", i, $index)')
 										span(class='name')
 											input(v-model='info.name', v-on:input='update("name", i, $index)')
-							td
+							td.topic
 								input.seamless(
 									v-model='member.topic',
 									v-on:input='update("topic", i)'
 									)
-							td
+							td.url
 								input(type='text', value='{{member.id | url}}')
-							td
-								span(
+							td.online
+								span.clickable(
 									v-on:click='openThread(i)',
 									class=`glyphicon {{(member.profiles[1].connections > 0) | bool 'glyphicon-ok-circle' 'glyphicon-ban-circle'}}`,
 									aria-hidden=`true`

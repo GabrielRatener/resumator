@@ -10,7 +10,6 @@ Vue.filter('signify', (value, name) => {
 
 Vue.filter('online', (members, index) => {
 	for (let i = 0; i < members.length; i++) {
-		console.log(members[i]);
 		if (i === index)
 			continue;
 		if (members[i].online)
@@ -22,7 +21,6 @@ Vue.filter('online', (members, index) => {
 
 Vue.filter('firstOnline', (members, index) => {
 	for (let i = 0; i < members.length; i++) {
-		console.log(members[i]);
 		if (i === index)
 			continue;
 		if (members[i].online)

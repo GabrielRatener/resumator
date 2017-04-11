@@ -3,6 +3,9 @@
     opacity: 0.0; }
   100% {
     opacity: 1.0; } }
+.clickable {
+  cursor: pointer; }
+
 html, body {
   margin: 0px;
   padding: 0px;
@@ -76,49 +79,56 @@ body {
         width: 100%; } }
     .content-box #chats table caption h4 {
       padding-left: 10px; }
-    @media (max-width: 600px) {
-      .content-box #chats table tr td:nth-child(0n + 5), .content-box #chats table tr th:nth-child(0n + 5) {
-        display: none; } }
-    .content-box #chats table tr td .seamless {
-      width: 150px; }
-    .content-box #chats table tr td a {
-      cursor: pointer; }
-    .content-box #chats table tr td:nth-child(0n + 3) {
+    .content-box #chats table tr .profile {
       width: 200px; }
-      .content-box #chats table tr td:nth-child(0n + 3) .btn {
+      .content-box #chats table tr .profile ul.profile {
+        width: 180px; }
+        .content-box #chats table tr .profile ul.profile li {
+          width: 100%; }
+          .content-box #chats table tr .profile ul.profile li.topic {
+            display: none; }
+            @media (max-width: 600px) {
+              .content-box #chats table tr .profile ul.profile li.topic {
+                display: block; } }
+          .content-box #chats table tr .profile ul.profile li:nth-child(0n + 2), .content-box #chats table tr .profile ul.profile li.topic {
+            border-top-left-radius: 0px;
+            background-color: #ddd; }
+            .content-box #chats table tr .profile ul.profile li:nth-child(0n + 2) input, .content-box #chats table tr .profile ul.profile li.topic input {
+              width: 100%;
+              background-color: #ddd; }
+          .content-box #chats table tr .profile ul.profile li > span {
+            display: block;
+            width: 100%;
+            border-bottom: 1px solid gray;
+            margin-bottom: 5px; }
+            .content-box #chats table tr .profile ul.profile li > span span {
+              display: inline-block;
+              width: 12px; }
+            .content-box #chats table tr .profile ul.profile li > span.color {
+              text-shadow: 1px 1px 2px black; }
+              .content-box #chats table tr .profile ul.profile li > span.color input {
+                text-shadow: inherit;
+                width: calc(100% - 12px); }
+            .content-box #chats table tr .profile ul.profile li > span.name input {
+              width: 100%; }
+            .content-box #chats table tr .profile ul.profile li > span input {
+              border: none;
+              outline: none; }
+    @media (max-width: 600px) {
+      .content-box #chats table tr .topic {
+        display: none; } }
+    @media (max-width: 600px) {
+      .content-box #chats table tr .url {
+        display: none; } }
+    .content-box #chats table tr td.profile {
+      width: 180px; }
+      .content-box #chats table tr td.profile .btn {
         border-radius: 0px;
         outline: none; }
-      .content-box #chats table tr td:nth-child(0n + 3) ul {
-        width: 180px; }
-    .content-box #chats table tr td:nth-child(0n + 5) input {
+      .content-box #chats table tr td.profile ul {
+        width: 160px; }
+    .content-box #chats table tr td.url input {
       width: 100px; }
-    .content-box #chats ul.profile {
-      width: 210px; }
-      .content-box #chats ul.profile li {
-        width: 100%; }
-        .content-box #chats ul.profile li:nth-child(0n + 1) {
-          border-top-left-radius: 0px;
-          background-color: #ddd; }
-          .content-box #chats ul.profile li:nth-child(0n + 1) input {
-            background-color: #ddd; }
-        .content-box #chats ul.profile li > span {
-          display: block;
-          width: 100%;
-          border-bottom: 1px solid gray;
-          margin-bottom: 5px; }
-          .content-box #chats ul.profile li > span span {
-            display: inline-block;
-            width: 12px; }
-          .content-box #chats ul.profile li > span.color {
-            text-shadow: 1px 1px 2px black; }
-            .content-box #chats ul.profile li > span.color input {
-              text-shadow: inherit;
-              width: calc(100% - 12px); }
-          .content-box #chats ul.profile li > span.name input {
-            width: 100%; }
-          .content-box #chats ul.profile li > span input {
-            border: none;
-            outline: none; }
   .content-box #chat .thread {
     z-index: 10;
     display: none;

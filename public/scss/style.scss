@@ -14,6 +14,10 @@ $mobileMaxWidth: 600px;
   }
 }
 
+.clickable {
+	cursor: pointer;
+}
+
 html, body {
   margin: 0px;
   padding: 0px;
@@ -110,82 +114,93 @@ body {
 			}
 
 			tr {
-				td, th {
-					&:nth-child(0n + 5) {
-						@media (max-width: $mobileMaxWidth) {
-							display: none;
+				.profile {
+					width: 200px;
+					ul.profile {
+						width: 180px;
+						li {
+							&.topic {
+								display: none;
+								@media (max-width: $mobileMaxWidth) {
+									display: block;
+								}
+							}
+
+							&:nth-child(0n + 2), &.topic {
+								border-top-left-radius: 0px;
+								background-color: #ddd;
+
+								input {
+									width: 100%;
+									background-color: #ddd
+								}
+							}
+
+							width: 100%;
+							& > span {
+								display: block;
+								width: 100%;
+								border-bottom: 1px solid gray;
+								margin-bottom: 5px;
+
+								span {
+									display: inline-block;
+									width: 12px;
+								}
+
+								&.color {
+									text-shadow: 1px 1px 2px black;
+
+									input {
+										text-shadow: inherit;
+										width: calc(100% - 12px);
+									}
+								}
+
+								&.name input {
+									width: 100%;
+								}
+
+								input {
+									border: none;
+									outline: none;
+								}
+							}
 						}
 					}
 				}
 
-				td {
-					.seamless {
-						width: 150px;
-					}
+				.topic {
+					@media (max-width: $mobileMaxWidth) {
+						display: none;
+					}					
+				}
 
-					a {
-						cursor: pointer;
+				.url {
+					@media (max-width: $mobileMaxWidth) {
+						display: none;
 					}
-					&:nth-child(0n + 3) {
+				}
+
+
+				td {
+
+
+					&.profile {
 						.btn {
 							border-radius: 0px;
 							outline: none;
 						}
 
-						width: 200px;
+						width: 180px;
 
 						ul {
-							width: 180px;					
+							width: 160px;					
 						}
 					}
 
-					&:nth-child(0n + 5) input {
+					&.url input {
 						width: 100px;
-					}
-				}
-			}
-		}
-
-
-		ul.profile {
-			width: 210px;
-			li {
-				&:nth-child(0n + 1) {
-					border-top-left-radius: 0px;
-					background-color: #ddd;
-
-					input {
-						background-color: #ddd
-					}
-				}
-				width: 100%;
-				& > span {
-					display: block;
-					width: 100%;
-					border-bottom: 1px solid gray;
-					margin-bottom: 5px;
-
-					span {
-						display: inline-block;
-						width: 12px;
-					}
-
-					&.color {
-						text-shadow: 1px 1px 2px black;
-
-						input {
-							text-shadow: inherit;
-							width: calc(100% - 12px);
-						}
-					}
-
-					&.name input {
-						width: 100%;
-					}
-
-					input {
-						border: none;
-						outline: none;
 					}
 				}
 			}

@@ -1,0 +1,168 @@
+{
+  "basics": {
+    "name": "Gabriel Ratener",
+    "label": "Web Developer and Engineer",
+    "picture": "https://scontent-sea1-1.cdninstagram.com/t51.2885-19/s150x150/15623609_383598425306027_5293367319089643520_a.jpg",
+    "email": "gabe9693@gmail.com",
+    "phone": "(425) 463-7382",
+    "website": "",
+    "summary": "Gabe was born and raised in Redmond, Washington and graduated from Emerson High in 2011, though he actually spent his last two years in the Running Start program. As a teenager he developed deep interests in computer programming and weather prediction. One thing lead to another and he ended up in a CS Masters program after completing his degree in Atmospheric Sciences. During this time he started developing a new programming language for the web. The painstaking work with LR grammars sparked Gabe's interest in developing efficient parsing algorithms and tools, especially for the web. Start talking about parsing or programming language semantics with Gabe and you're in for a long conversation.",
+    "location": {
+      "address": "19620 NE Redmond Rd",
+      "postalCode": "98053",
+      "city": "Redmond",
+      "countryCode": "",
+      "region": "WA"
+    },
+    "profiles": [
+      {
+        "network": "Instagram",
+        "username": "gabetheboa",
+        "url": "https://www.instagram.com/gabetheboa/"
+      }
+    ]
+  },
+  "work": [
+    {
+      "company": "Michael Green",
+      "position": "Front-end Shopify Ninja",
+      "website": "https://michaelgreenusa.com/",
+      "startDate": "2015-07-01",
+      "summary": "I get told by my boss how the the site should look and behave, and I make it happen",
+      "highlights": [
+        "E-commerce",
+        "Liquid templates",
+        "Sass 3 stylesheets + CSS3 make for a slick, responsive site",
+        "JQuery + plugins"
+      ]
+    },
+    {
+      "company": "Prime Learning Center",
+      "position": "Math and Programming Instructor",
+      "website": "http://primelearningcenter.com/",
+      "startDate": "2016-06-07",
+      "summary": "Prime Learning Center is an organization providing tutoring, test preparation, and study skills for K-12 students.",
+      "highlights": [
+        "Develop and teach the Computer Science curriculum",
+        "Teach and tutor math",
+        "Engage with parents and students alike"
+      ]
+    },
+    {
+      "company": "Central Washington University",
+      "position": "Independent College Tutor",
+      "website": "",
+      "startDate": "2014-09-01",
+      "endDate": "2016-06-19",
+      "summary": "Tutored college students in various Physics, Math, and Computer Science subjects",
+      "highlights": []
+    }
+  ],
+  "volunteer": [],
+  "education": [
+    {
+      "institution": "Bellevue College",
+      "area": "Arts and Sciences",
+      "studyType": "Associates",
+      "startDate": "2009-09-21",
+      "endDate": "2011-06-14",
+      "gpa": "3.8",
+      "courses": []
+    },
+    {
+      "institution": "University of Washington",
+      "area": "Atmospheric Sciences",
+      "studyType": "Bachelor of Science",
+      "startDate": "2011-09-21",
+      "endDate": "2014-06-14",
+      "gpa": "3.3",
+      "courses": [
+        "AMATH 353 - Partial Differential Equations",
+        "AMATH 351 - Applied Linear Algebra and Numerical Analysis",
+        "ATMOS 341 - Atmospheric Thermodynamics",
+        "ATMOS 441 - Ensemble Forecasting and Chaos Theory"
+      ]
+    },
+    {
+      "institution": "Central Washington University",
+      "area": "Computer Science",
+      "studyType": "Master",
+      "startDate": "2014-09-24",
+      "endDate": "2016-06-14",
+      "gpa": "3.9",
+      "courses": [
+        "MATH 565 - Numerical Methods",
+        "CS 530 - High-Performance Computing",
+        "CS 528 - Advanced Data Structures and Algorithms"
+      ]
+    }
+  ],
+  "awards": [],
+  "publications": [],
+  "skills": [
+    {
+      "name": "Web Development",
+      "level": "Master",
+      "keywords": [
+        "HTML",
+        "CSS",
+        "Javascript",
+        "Express",
+        "Jade",
+        "Angular.js 1 & 2",
+        "Mongo DB",
+        "PHP",
+        "MySQL",
+        "REST Services",
+        "CoffeeScript",
+        "TypeScript",
+        "Sass 3",
+        "Node.JS"
+      ]
+    },
+    {
+      "name": "Teaching and Tutoring",
+      "level": "Master",
+      "keywords": [
+        "K-12 Math",
+        "Computer Programming",
+        "Mechanics",
+        "Differential Calculus",
+        "Integral Calculus"
+      ]
+    },
+    {
+      "name": "Software Engineering",
+      "level": "Junior",
+      "keywords": [
+        "Best Principles",
+        "Runtime Complexity",
+        "Space Complexicy",
+        "Parallel Computing",
+        "Data Structures",
+        "C / C++",
+        "Algorithms",
+        "System Architecture",
+        "Linux",
+        "Command Line Interfaces",
+        "High-Performance Computing"
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "language": "English",
+      "fluency": "Native speaker"
+    }
+  ],
+  "interests": [
+    {
+      "name": "Adventuring",
+      "keywords": [
+        "Mountains - Yes",
+        "Big Cities - No"
+      ]
+    }
+  ],
+  "references": []
+}
